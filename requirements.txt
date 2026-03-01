@@ -1,0 +1,32 @@
+# RentShield AI Analysis Engine - Dependencies
+# Python 3.11+ required
+
+# Web Framework
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+
+# Data Validation
+pydantic==2.5.3
+pydantic-settings==2.1.0
+
+# File Handling
+python-multipart==0.0.6
+Pillow==10.2.0
+
+# HTTP Client
+requests==2.31.0
+httpx==0.26.0
+
+# Logging
+structlog==24.1.0
+
+# Environment Variables
+python-dotenv==1.0.0
+
+# Testing
+pytest==7.4.3
+pytest-asyncio==0.23.3
+pytest-cov==4.1.0
+
+# Type Checking (optional, for development)
+# mypy==1.8.0
