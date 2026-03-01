@@ -1,143 +1,96 @@
-# Multimodal-dispute-resolution-engine
-Smart AI microservice that analyzes disputes using LLM reasoning, EXIF forensics, and vision models to generate structured, confidence-based recommendations.
+# 🧠 Multimodal Dispute AI Engine
 
-🧠 Overview
+A stateless FastAPI microservice that brings structured intelligence to real-world disputes by combining large language models, vision-language models, EXIF metadata forensics, and evidence consistency analysis to produce **neutral, explainable, and confidence-based verdict recommendations**.
 
-The Multimodal Dispute AI Engine is a stateless FastAPI microservice designed to bring structured intelligence to real-world disputes.
+---
 
-It combines:
+## ✨ Why This Exists
 
-🧠 Large Language Models (Mistral)
+Most dispute systems suffer from:
 
-👁️ Vision-Language Models (LLaVA)
+- ❌ Manual review bottlenecks
+- ❌ Unverifiable evidence
+- ❌ Subjective decision-making
+- ❌ Fraud-prone workflows
 
-🔍 EXIF metadata forensics
+This engine introduces a **programmable trust layer** that transforms messy disputes into structured, analyzable signals.
 
-⚖️ Evidence consistency analysis
+---
 
-to produce neutral, explainable, and confidence-based verdict recommendations.
+## 🔥 Key Features
 
-✨ Why This Exists
+### 🧠 LLM-Powered Case Reasoning
+- Argument extraction from both parties
+- Credibility scoring
+- Neutral case summarization
+- Structured recommendation generation
 
-Today, most dispute systems suffer from:
+### 👁️ Vision Intelligence (LLaVA)
+- Scene understanding
+- Damage detection
+- Object recognition
+- Safety hazard identification
+- Indoor/outdoor classification
 
-❌ manual review bottlenecks
+### 🔍 EXIF Forensic Analysis
+- Timestamp validation
+- Device metadata extraction
+- GPS presence checks
+- Software tamper signals
+- File fingerprinting
 
-❌ unverifiable evidence
+### ⚖️ Multimodal Evidence Fusion
 
-❌ subjective decision-making
+The engine cross-validates text claims, visual evidence, and metadata signals to produce:
 
-❌ fraud-prone workflows
+- Evidence strength score
+- Consistency score
+- Fraud indicators
+- Trust level classification
 
-This engine introduces a programmable trust layer that transforms messy disputes into structured, analyzable signals.
+### 🏗️ Stateless Microservice Design
+- No database dependency
+- Horizontally scalable
+- Deterministic JSON outputs
+- Easy backend integration
+- Local-first privacy model
 
-🔥 Key Features
-🧠 LLM-Powered Case Reasoning
+---
 
-Argument extraction from both parties
+## 🧩 Architecture
 
-Credibility scoring
-
-Neutral case summarization
-
-Structured recommendation generation
-
-👁️ Vision Intelligence (LLaVA)
-
-Scene understanding
-
-Damage detection
-
-Object recognition
-
-Safety hazard identification
-
-Indoor/outdoor classification
-
-🔍 EXIF Forensic Analysis
-
-Timestamp validation
-
-Device metadata extraction
-
-GPS presence checks
-
-Software tamper signals
-
-File fingerprinting
-
-⚖️ Multimodal Evidence Fusion
-
-The engine cross-validates:
-
-Text claims
-
-Visual evidence
-
-Metadata signals
-
-to produce:
-
-Evidence strength score
-
-Consistency score
-
-Fraud indicators
-
-Trust level classification
-
-🏗️ Stateless Microservice Design
-
-No database dependency
-
-Horizontally scalable
-
-Deterministic JSON outputs
-
-Easy backend integration
-
-Local-first privacy model
-
-🧩 Architecture
+```
 Client → FastAPI → LLM (Mistral)
-                  → Vision Model (LLaVA)
-                  → EXIF Analyzer
-                  → Evidence Fusion
-                  → Structured Verdict JSON
-🛠️ Tech Stack
+                 → Vision Model (LLaVA)
+                 → EXIF Analyzer
+                 → Evidence Fusion
+                 → Structured Verdict JSON
+```
 
-Backend
+---
 
-FastAPI
+## 🛠️ Tech Stack
 
-Python 3.11+
+| Layer | Technology |
+|-------|------------|
+| **Backend** | FastAPI, Python 3.11+, Pydantic v2 |
+| **AI Runtime** | Ollama, Mistral 7B, LLaVA |
+| **Image Processing** | Pillow, EXIF extraction |
+| **Infra** | Uvicorn, Local GPU acceleration (optional) |
 
-Pydantic v2
+---
 
-AI Runtime
+## 📡 API
 
-Ollama
+### Primary Endpoint
 
-Mistral 7B
-
-LLaVA
-
-Image Processing
-
-Pillow
-
-EXIF extraction
-
-Infra
-
-Uvicorn
-
-Local GPU acceleration (optional)
-
-📡 API
-Primary Endpoint
+```
 POST /api/v1/analyze-case
-📥 Example Request
+```
+
+### 📥 Example Request
+
+```json
 {
   "issue_id": "issue-abc123",
   "tenant_complaint": "Heating system broken for 3 weeks.",
@@ -159,7 +112,11 @@ POST /api/v1/analyze-case
   },
   "enable_vision_analysis": true
 }
-📤 Example Output
+```
+
+### 📤 Example Response
+
+```json
 {
   "case_summary": "...",
   "dao_recommendation": {
@@ -168,108 +125,111 @@ POST /api/v1/analyze-case
     "neutral_confidence": 13,
     "recommended_outcome": "Favor Tenant"
   },
-  "vision_analyses": [...],
+  "vision_analyses": ["..."],
   "request_id": "..."
 }
-🚀 Getting Started
-1️⃣ Prerequisites
+```
 
-Python 3.11+
+---
 
-Ollama installed
+## 🚀 Getting Started
 
-Mistral model pulled
+### 1️⃣ Prerequisites
 
-LLaVA model pulled
+- Python 3.11+
+- [Ollama](https://ollama.ai) installed
+- Mistral model pulled
+- LLaVA model pulled
 
-2️⃣ Install Dependencies
+### 2️⃣ Install Dependencies
+
+```bash
 pip install -r requirements.txt
-3️⃣ Start Ollama
+```
+
+### 3️⃣ Start Ollama
+
+```bash
 ollama serve
-4️⃣ Run the API
+```
+
+### 4️⃣ Run the API
+
+```bash
 uvicorn app.main:app --reload --port 8000
-5️⃣ Open Docs
+```
+
+### 5️⃣ Open Interactive Docs
+
+```
 http://localhost:8000/docs
-🧪 Performance
+```
 
-Tested locally on:
+---
 
-RTX 4050 (6GB VRAM)
+## 🧪 Performance
 
-16GB RAM
+Tested locally on an RTX 4050 (6GB VRAM) with 16GB RAM using the local Ollama runtime.
 
-Local Ollama runtime
+| Mode | Typical Latency |
+|------|----------------|
+| ⏱️ Text-only | ~3–5s |
+| ⏱️ With vision | ~6–10s |
 
-Typical latency:
+---
 
-⏱️ Text-only: ~3–5s
-
-⏱️ With vision: ~6–10s
-
-🧭 Example Use Cases
+## 🧭 Example Use Cases
 
 This engine is domain-agnostic and can power:
 
-🏠 Rental dispute resolution
+| Domain | Application |
+|--------|-------------|
+| 🏠 Real Estate | Rental dispute resolution |
+| 🛡️ Insurance | Claim verification |
+| 🛒 E-Commerce | Marketplace fraud detection |
+| 📦 Retail | Warranty claim validation |
+| 🎧 Support | Customer support arbitration |
+| ⚖️ Web3 | DAO-assisted moderation |
 
-🛡️ Insurance claim verification
+---
 
-🛒 Marketplace fraud detection
+## 🔒 Design Principles
 
-📦 Warranty claim validation
+- **Privacy-first** — local inference keeps data off third-party servers
+- **Deterministic outputs** — structured JSON for reliable downstream integration
+- **Human-in-the-loop compatible** — recommendations, not mandates
+- **Fraud-aware** — evidence scoring built with adversarial inputs in mind
+- **Modular pipeline** — swap or extend any component independently
 
-🎧 Customer support arbitration
+---
 
-⚖️ DAO-assisted moderation
+## 🚧 Current Limitations
 
-🔒 Design Principles
+- Not a legal decision system
+- Requires publicly accessible image URLs
+- Vision accuracy depends on image quality
+- Optimized for English text
 
-Privacy-first local inference
+---
 
-Deterministic structured outputs
+## 🔮 Future Improvements
 
-Human-in-the-loop compatible
+- [ ] Batch inference pipeline
+- [ ] Streaming responses
+- [ ] Advanced tamper detection
+- [ ] Juror explanation mode
+- [ ] Lightweight edge deployment
 
-Fraud-aware evidence scoring
+---
 
-Modular multimodal pipeline
+## 👨‍💻 Author
 
-🚧 Current Limitations
+Kaushike Ramanathan
 
-Not a legal decision system
+Built as part of advanced work in multimodal AI systems, trust infrastructure, automated dispute intelligence, and AI-assisted governance.
 
-Requires publicly accessible images
+---
 
-Vision accuracy depends on image quality
+## ⭐ Support This Project
 
-Optimized for English text
-
-🔮 Future Improvements
-
-Batch inference pipeline
-
-Streaming responses
-
-Advanced tamper detection
-
-Juror explanation mode
-
-Lightweight edge deployment
-
-👨‍💻 Author
-
-<your-name>
-
-Built as part of advanced work in:
-
-Multimodal AI systems
-
-Trust infrastructure
-
-Automated dispute intelligence
-
-AI-assisted governance
-
-⭐ If This Project Helped You
-
-Give it a star — it helps more than you think.
+If this project helped you, give it a star — it helps more than you think.
